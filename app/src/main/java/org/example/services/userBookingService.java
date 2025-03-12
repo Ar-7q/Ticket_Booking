@@ -2,9 +2,12 @@ package org.example.services;
 
 import com.fasterxml.jackson.core.JsonParser;
 import org.example.entities.User;
+import org.example.util.UserServiceUtil;
+
 import com.fasterxml.jackson.core.type.TypeReference;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.utils.UserServiceUtil;
+
 
 import org.example.entities.Ticket;
 import org.example.entities.Train;
@@ -22,7 +25,7 @@ public class UserBookingService {
 
     private User user;
 
-    private final String USER_FILE_PATH = "../localDb/users.json";
+    private final String USER_FILE_PATH = "app/src/main/resources/localDb/users.json";
 
     public UserBookingService(User user) throws IOException {
         this.user = user;
@@ -46,30 +49,30 @@ public class UserBookingService {
         return foundUser.isPresent();
     }
 
-    // public Boolean signUp(User user1) {
-    //     try {
-    //         userList.add(user1);
-    //         saveUserListToFile();
-    //         return Boolean.TRUE;
-    //     } catch (IOException ex) {
-    //         return Boolean.FALSE;
-    //     }
-    // }
+    public Boolean signUp(User user1) {
+        try {
+            userList.add(user1);
+            saveUserListToFile();
+            return Boolean.TRUE;
+        } catch (IOException ex) {
+            return Boolean.FALSE;
+        }
+    }
 
-    // private void saveUserListToFile() throws IOException {
-    //     File usersFile = new File(USER_FILE_PATH);
-    //     objectMapper.writeValue(usersFile, userList);
-    // }
+    private void saveUserListToFile() throws IOException {
+        File usersFile = new File(USER_FILE_PATH);
+        objectMapper.writeValue(usersFile, userList);
+    }
 
-    // public void fetchBookings() {
-    //     Optional<User> userFetched = userList.stream().filter(user1 -> {
-    //         return user1.getName().equals(user.getName())
-    //                 && UserServiceUtil.checkPassword(user.getPassword(), user1.getHashedPassword());
-    //     }).findFirst();
-    //     if (userFetched.isPresent()) {
-    //         userFetched.get().printTickets();
-    //     }
-    // }
+    public void fetchBookings() {
+        Optional<User> userFetched = userList.stream().filter(user1 -> {
+            return user1.getName().equals(user.getName())
+                    && UserServiceUtil.checkPassword(user.getPassword(), user1.getHashedPassword());
+        }).findFirst();
+        if (userFetched.isPresent()) {
+            userFetched.get().printTickets();
+        }
+    }
 
     // todo: Complete this function
     // public Boolean cancelBooking(String ticketId) {
