@@ -75,62 +75,62 @@ public class UserBookingService {
     }
 
     // todo: Complete this function
-    // public Boolean cancelBooking(String ticketId) {
+    public Boolean cancelBooking(String ticketId) {
 
-    //     Scanner s = new Scanner(System.in);
-    //     System.out.println("Enter the ticket id to cancel");
-    //     ticketId = s.next();
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the ticket id to cancel");
+        ticketId = s.next();
 
-    //     if (ticketId == null || ticketId.isEmpty()) {
-    //         System.out.println("Ticket ID cannot be null or empty.");
-    //         return Boolean.FALSE;
-    //     }
+        if (ticketId == null || ticketId.isEmpty()) {
+            System.out.println("Ticket ID cannot be null or empty.");
+            return Boolean.FALSE;
+        }
 
-    //     String finalTicketId1 = ticketId; // Because strings are immutable
-    //     boolean removed = user.getTicketsBooked().removeIf(ticket -> ticket.getTicketId().equals(finalTicketId1));
+        String finalTicketId1 = ticketId; // Because strings are immutable
+        boolean removed = user.getTicketsBooked().removeIf(ticket -> ticket.getTicketId().equals(finalTicketId1));
 
-    //     String finalTicketId = ticketId;
-    //     user.getTicketsBooked().removeIf(Ticket -> Ticket.getTicketId().equals(finalTicketId));
-    //     if (removed) {
-    //         System.out.println("Ticket with ID " + ticketId + " has been canceled.");
-    //         return Boolean.TRUE;
-    //     } else {
-    //         System.out.println("No ticket found with ID " + ticketId);
-    //         return Boolean.FALSE;
-    //     }
-    // }
+        String finalTicketId = ticketId;
+        user.getTicketsBooked().removeIf(Ticket -> Ticket.getTicketId().equals(finalTicketId));
+        if (removed) {
+            System.out.println("Ticket with ID " + ticketId + " has been canceled.");
+            return Boolean.TRUE;
+        } else {
+            System.out.println("No ticket found with ID " + ticketId);
+            return Boolean.FALSE;
+        }
+    }
 
-    // public List<Train> getTrains(String source, String destination) {
-    //     try {
-    //         TrainService trainService = new TrainService();
-    //         return trainService.searchTrains(source, destination);
-    //     } catch (IOException ex) {
-    //         return new ArrayList<>();
-    //     }
-    // }
+    public List<Train> getTrains(String source, String destination) {
+        try {
+            TrainService trainService = new TrainService();
+            return trainService.searchTrains(source, destination);
+        } catch (IOException ex) {
+            return new ArrayList<>();
+        }
+    }
 
-    // public List<List<Integer>> fetchSeats(Train train) {
-    //     return train.getSeats();
-    // }
+    public List<List<Integer>> fetchSeats(Train train) {
+        return train.getSeats();
+    }
 
-    // public Boolean bookTrainSeat(Train train, int row, int seat) {
-    //     try {
-    //         TrainService trainService = new TrainService();
-    //         List<List<Integer>> seats = train.getSeats();
-    //         if (row >= 0 && row < seats.size() && seat >= 0 && seat < seats.get(row).size()) {
-    //             if (seats.get(row).get(seat) == 0) {
-    //                 seats.get(row).set(seat, 1);
-    //                 train.setSeats(seats);
-    //                 trainService.addTrain(train);
-    //                 return true; // Booking successful
-    //             } else {
-    //                 return false; // Seat is already booked
-    //             }
-    //         } else {
-    //             return false; // Invalid row or seat index
-    //         }
-    //     } catch (IOException ex) {
-    //         return Boolean.FALSE;
-    //     }
-    // }
+    public Boolean bookTrainSeat(Train train, int row, int seat) {
+        try {
+            TrainService trainService = new TrainService();
+            List<List<Integer>> seats = train.getSeats();
+            if (row >= 0 && row < seats.size() && seat >= 0 && seat < seats.get(row).size()) {
+                if (seats.get(row).get(seat) == 0) {
+                    seats.get(row).set(seat, 1);
+                    train.setSeats(seats);
+                    trainService.addTrain(train);
+                    return true; // Booking successful
+                } else {
+                    return false; // Seat is already booked
+                }
+            } else {
+                return false; // Invalid row or seat index
+            }
+        } catch (IOException ex) {
+            return Boolean.FALSE;
+        }
+    }
 }
