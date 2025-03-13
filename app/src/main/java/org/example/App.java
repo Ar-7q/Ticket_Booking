@@ -23,7 +23,6 @@ public class App {
     }
 
     public static void main(String[] args) {
-        
         System.out.println("Running Train Booking System");
         Scanner scanner = new Scanner(System.in);
         int option = 0;
@@ -32,6 +31,7 @@ public class App {
             userBookingService = new UserBookingService();
         }catch(IOException ex){
             ex.printStackTrace();
+
             System.out.println("There is something wrong");
             return;
         }

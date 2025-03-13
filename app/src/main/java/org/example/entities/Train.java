@@ -2,21 +2,24 @@ package org.example.entities;
 // import java.sql.Time;
 import java.util.*;
 
-import com.fasterxml.jackson.annotation.JsonProperty;;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+@Builder
 public class Train {
-
-
-    @JsonProperty("train_id")
+    
     private String trainId;
 
-    @JsonProperty("train_no")
     private String trainNo;
 
     private List<List<Integer>> seats;
 
-    @JsonProperty("station_times")
-    private Map<String,String> stationTimes;
+    private Map<String, String> stationTimes;
 
     private List<String> stations;
 
@@ -73,5 +76,5 @@ public class Train {
     public String getTrainInfo(){
         return String.format("Train ID: %s Train No: %s", trainId, trainNo);
     }
-    
+
 }

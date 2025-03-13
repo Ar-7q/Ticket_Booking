@@ -1,23 +1,30 @@
 package org.example.entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-public class Ticket {
-    @JsonProperty("ticket_id")
+// import java.sql.Date;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+public class Ticket{
+
     private String ticketId;
 
-    @JsonProperty("user_id")
     private String userId;
 
     private String source;
 
-
     private String destination;
 
-
-    @JsonProperty("date_of_travel")
     private String dateOfTravel;
-    
+
     private Train train;
 
     public Ticket(){}
@@ -83,5 +90,4 @@ public class Ticket {
         this.train = train;
     }
 
-    
 }
