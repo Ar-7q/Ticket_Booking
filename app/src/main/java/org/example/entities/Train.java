@@ -1,20 +1,28 @@
 package org.example.entities;
-import java.sql.Time;
-import java.util.*;;
+// import java.sql.Time;
+import java.util.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;;
 
 public class Train {
 
+
+    @JsonProperty("train_id")
     private String trainId;
+
+    @JsonProperty("train_no")
     private String trainNo;
+
     private List<List<Integer>> seats;
 
-    private Map<String,Time> stationTimes;
+    @JsonProperty("station_times")
+    private Map<String,String> stationTimes;
 
     private List<String> stations;
 
     public Train(){}
 
-    public Train(String trainId, String trainNo, List<List<Integer>> seats, Map<String, Time> stationTimes, List<String> stations){
+    public Train(String trainId, String trainNo, List<List<Integer>> seats, Map<String, String> stationTimes, List<String> stations){
         this.trainId = trainId;
         this.trainNo = trainNo;
         this.seats = seats;
@@ -38,7 +46,7 @@ public class Train {
         return trainId;
     }
 
-    public Map<String, Time> getStationTimes(){
+    public Map<String, String> getStationTimes(){
         return stationTimes;
     }
 
@@ -54,7 +62,7 @@ public class Train {
         this.trainId = trainId;
     }
 
-    public void setStationTimes(Map<String, Time> stationTimes){
+    public void setStationTimes(Map<String, String> stationTimes){
         this.stationTimes = stationTimes;
     }
 

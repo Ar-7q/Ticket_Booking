@@ -1,17 +1,23 @@
 package org.example.entities;
 
-import java.sql.Date;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Ticket {
+    @JsonProperty("ticket_id")
     private String ticketId;
+
+    @JsonProperty("user_id")
     private String userId;
 
     private String source;
 
 
     private String destination;
-    
+
+
+    @JsonProperty("date_of_travel")
     private String dateOfTravel;
+    
     private Train train;
 
     public Ticket(){}

@@ -1,4 +1,4 @@
-package org.example.services;
+package org.example.service;
 
 import com.fasterxml.jackson.core.JsonParser;
 import org.example.entities.User;
@@ -25,7 +25,7 @@ public class UserBookingService {
 
     private User user;
 
-    private final String USER_FILE_PATH = "app/src/main/resources/localDb/users.json";
+    private final String USER_FILE_PATH = "C:/Users/anjoo/Arpit/Projects_List/Irctc/app/src/main/java/org/example/localDb/users.json";
 
     public UserBookingService(User user) throws IOException {
         this.user = user;

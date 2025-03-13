@@ -3,20 +3,27 @@
  */
 package org.example;
 
+import org.example.entities.Train;
+import org.example.entities.User;
+import org.example.service.UserBookingService;
+import org.example.util.UserServiceUtil;
+
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.UUID;
 
-import org.example.entities.Train;
-import org.example.entities.User;
-import org.example.services.UserBookingService;
-import org.example.util.UserServiceUtil;
-
 public class App {
-     public static void main(String[] args) {
+
+    public String getGreeting() {
+        return "Hello, World!";
+    }
+
+    public static void main(String[] args) {
+        
         System.out.println("Running Train Booking System");
         Scanner scanner = new Scanner(System.in);
         int option = 0;
@@ -24,6 +31,7 @@ public class App {
         try{
             userBookingService = new UserBookingService();
         }catch(IOException ex){
+            ex.printStackTrace();
             System.out.println("There is something wrong");
             return;
         }
