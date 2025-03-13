@@ -37,6 +37,8 @@ application {
     // Define the main class for the application.
     mainClass = 'org.example.App'
 }
+
+// i have added the java scannerinput function to handle the function unless it camnt read it
 tasks.withType(JavaExec).configureEach {
     standardInput = System.in
 }

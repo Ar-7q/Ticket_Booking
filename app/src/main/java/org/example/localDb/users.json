@@ -77,5 +77,12 @@
         "hashed_password": "$2a$10$tUuqesghEMjL8wKatDi2/uX9LcWvjNkJztQxPEY3PzOrOOJ4Q4b2C",
         "tickets_booked": [],
         "user_id": "43bc4cc3-b765-4971-89e3-3895a2b108a7"
+    },
+    {
+        "name": "7",
+        "password": "5567777",
+        "hashed_password": "$2a$10$N7sRQydYKq28PsHy5m1Tb.ZfVORuzZZXBvsczSLuQGM4Tcri4iU06",
+        "tickets_booked": [],
+        "user_id": "b9d36d1a-5e7a-4e9c-95ed-db3055e76e79"
     }
 ]
